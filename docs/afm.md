@@ -60,10 +60,8 @@ const afm = {
 }
 ```
 
-All filters are defined using the `displayForm` identifiers. Attribute filters - `positiveAttributeFilter` and
-`negativeAttributeFilter` - can be defined to match attribute elements by their URI (default) or by value (text filter).
-To use text filters, define `textFilter` property of the filter and use values instead of URIs in the `in` or `notIn`
-arrays. 
+All filters are defined using the `displayForm` identifiers. Attribute filters (both `positiveAttributeFilter` and `negativeAttributeFilter`) can be defined to match attribute elements by their URI (this is the default) or value (text filter).
+To use text filters, define the `textFilter` property of the filter and use values instead of URIs in the `in` or `notIn` arrays.
 
 ## Measure
 

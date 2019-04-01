@@ -165,25 +165,22 @@ IVisualizationAttribute = {
 #### Attribute filter definition
 You can find full TypeScript typings [here](https://github.com/gooddata/gooddata-typings/blob/v2.10.0/src/VisualizationInput.ts).
 
-Attribute filters refer to attribute display form by its `identifier` or `uri`. There are two types of attribute
-filters:
+An attribute filter refers to an attribute displayForm by its `identifier` or `uri`. Attribute filters can be of the following types:
 
--  Positive attribute filter - keeps matching attribute elements in results, filters out all other elements 
--  Negative attribute filter - filters out matching attribute elements from results, keeps all other elements
+* **Positive attribute filters** keep matching attribute elements in results and filter out all other elements.
+* **Negative attribute filters** filter out matching attribute elements from results and keep all other elements.
 
-Furthermore for each of the attribute filter types, you can specify attribute elements to match either 
-by reference (the URI of the actual attribute element) or by value. 
+For each type of an attribute filter, you can specify attribute elements to match either by reference (the URI of the attribute element) or by value. 
 
-Specifying attribute elements by value is a new feature of GoodData Platform; at this moment it incurs a small
-performance overhead.
+**NOTE:** Specifying attribute elements by value may slow down performance.
 
 ```ts
 IPositiveAttributeFilter = {
     positiveAttributeFilter: {
         displayForm: { uri / identifier: string },
-        in: string[], // array of attribute element URIs or textual values
-        textFilter?: boolean  // Optional; if true, then content of 'in' is treated as attribute element values to match. 
-                              // Otherwise the content of 'in' will be treated as attribute element URIs to match
+        in: string[], // an array of attribute element URIs or textual values
+        textFilter?: boolean  // Optional; if true, then the content of 'in' is treated as attribute element values to match.
+                              // If false, the content of 'in' is treated as attribute element URIs to match.
     }
 }
 ```
@@ -192,9 +189,9 @@ IPositiveAttributeFilter = {
 INegativeAttributeFilter = {
     negativeAttributeFilter: {
         displayForm: { uri / identifier: string },
-        notIn: string[], // array of attribute element URIs or textual values
-        textFilter?: boolean  // Optional; if true, then content of 'in' is treated as attribute element values to match. 
-                              // Otherwise the content of 'in' will be treated as attribute element URIs to match
+        notIn: string[], // an array of attribute element URIs or textual values
+        textFilter?: boolean  // Optional; if true, then the content of 'in' is treated as attribute element values to match.
+                              // If false, the content of 'in' is treated as attribute element URIs to match.
     }
 }
 ```
